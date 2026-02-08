@@ -1,6 +1,29 @@
 /* Google Fonts */
 /* Import Google fonts.  Great Vibes provides an elegant script to better match the Hive Clinic logo. */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap');
+/* Import updated fonts. 'Cormorant Garamond' is used for serif headings and 'Satisfy' provides an elegant script reminiscent of the Hive logo. */
+/*
+ * Import Google Fonts. We switched to the "Sassy Frass" script and
+ * the broader "Cormorant" family to better align with the user's
+ * requested typeface. Montserrat remains for body copy to ensure
+ * readability.  The `display=swap` parameter ensures text remains
+ * visible during font loading.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/*
+ * Self-hosted font: Satoshi. The file is placed in the assets/fonts
+ * directory so that it can be served by GitHub Pages. Variable fonts
+ * allow weight ranges; here we declare a single family covering all
+ * weights.  Note: To support broader browser compatibility you could
+ * supply WOFF/WOFF2 formats, but TTF suffices for modern browsers.
+ */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('assets/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* CSS Variables for consistent theming */
 :root {
@@ -8,10 +31,12 @@
   --secondary-color: #f6f0e8; /* warm cream */
   --accent-color: #b49982; /* soft beige for highlights */
   --text-color: #4d3d37;
-  --heading-font: 'Playfair Display', serif;
+  /* Heading font used throughout the site */
+  --heading-font: 'Cormorant', serif;
+  /* Body font remains Montserrat for clarity and legibility */
   --body-font: 'Montserrat', sans-serif;
-  /* Script font used for the Hive Clinic logotype */
-  --script-font: 'Great Vibes', cursive;
+  /* Script font used for hero headlines and other callouts.  We now use the locally hosted Satoshi variable font to complement the clinic's modern brand. */
+  --script-font: 'Satoshi', sans-serif;
 }
 
 * {
@@ -355,15 +380,47 @@ footer .social a:hover {
   line-height: 1.6;
 }
 
+/* Size and align imported Klarna/Clearpay logo images within the payment section */
+.payment-logo-img {
+  /* Fixed dimensions ensure both Klarna and Clearpay logos appear balanced */
+  height: 50px;
+  width: 140px;
+  /* Inline-block ensures logos sit next to each other within the flex container */
+  display: inline-block;
+  /* Add horizontal spacing between the logos */
+  margin: 0 12px;
+}
+
+/* Add spacing between payment provider logos */
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  /* Reduce hero height for smaller screens and shrink headline sizes */
+  .hero {
+    height: 60vh;
   }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  /* Stack navigation links closer together on mobile */
   header nav a {
     margin-left: 15px;
   }
+  /* Stack about section vertically on mobile */
   .about {
     flex-direction: column;
+  }
+  /* Use single column layouts for cards and grids on smaller devices */
+  .services-grid,
+  .results-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Ensure footer columns stack nicely */
+  footer .footer-container {
+    grid-template-columns: 1fr;
   }
 }
