@@ -8,7 +8,8 @@
  * readability.  The `display=swap` parameter ensures text remains
  * visible during font loading.
  */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+/* Import updated fonts. We now use Cormorant Garamond for a luxurious serif look and Montserrat for body copy. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 /*
  * Self-hosted font: Satoshi. The file is placed in the assets/fonts
@@ -27,15 +28,16 @@
 
 /* CSS Variables for consistent theming */
 :root {
-  --primary-color: #332822; /* rich espresso brown */
-  --secondary-color: #f6f0e8; /* warm cream */
-  --accent-color: #b49982; /* soft beige for highlights */
+  /* Colour palette: dark chocolate for primary, light ivory for backgrounds and a blush accent for a youthful, luxe feel. */
+  --primary-color: #372a28;
+  --secondary-color: #fbf7f4;
+  --accent-color: #d9a49c;
   --text-color: #4d3d37;
   /* Heading font used throughout the site */
-  --heading-font: 'Cormorant', serif;
+  --heading-font: 'Cormorant Garamond', serif;
   /* Body font remains Montserrat for clarity and legibility */
   --body-font: 'Montserrat', sans-serif;
-  /* Script font used for hero headlines and other callouts.  We now use the locally hosted Satoshi variable font to complement the clinic's modern brand. */
+  /* Script font used for hero headlines and other callouts.  We use the locally hosted Satoshi variable font to complement the clinic's modern brand. */
   --script-font: 'Satoshi', sans-serif;
 }
 
@@ -125,7 +127,8 @@ header nav a:hover {
   right: 0;
   bottom: 0;
   /* Apply a lighter gradient overlay so underlying images remain visible but text is still readable */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.45));
+  /* Soften the overlay so more of the background photography shines through */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
 }
 
 .hero .content {
